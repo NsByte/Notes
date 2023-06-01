@@ -3,7 +3,7 @@
 # Enumeration
 
 ## Screenshot enumeration
-https://github.com/byt3bl33d3r/WitnessMe
+https://github.com/byt3bl33d3r/WitnessMe\
 https://github.com/sensepost/gowitness
 
 
@@ -21,8 +21,8 @@ https://github.com/dolevf/graphw00f
 
 ## JWT
 
-https://github.com/ticarpi/jwt_tool
-https://jwt.io/
+https://github.com/ticarpi/jwt_tool\
+https://jwt.io/\
 https://0xn3va.gitbook.io/cheat-sheets/web-application/json-web-token-vulnerabilities
 
 # Email enumeration
