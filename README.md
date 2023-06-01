@@ -40,9 +40,22 @@ Using backticks\
 Using backticks\
 `<?php echo ```whoami```; ?>`
 
+## Email enumeration
+## SimplyEmail
+```
+source ~/python2env/bin/activate
+python SimplyEmail.py -e domain.com -all
+```
+## Linkedin2Username
+Enumerate the names of each person working at a company and convert it to a specific notation
+* You may need to login for verification
+```
+python3 linkedin2username.py -u <username> -p <password> -c linkedin-name
+```
 
 
 ## Mendix
+Look for authorisation issues.
 Schema/id en entity enumeration:
 1. .XML frontend files enumeraten en dan zoeken op 'entity', staat soms guid bij
 2. initiele sessie response bevat juicy data zoeken op 'klass' om objecten te vinden
@@ -91,7 +104,7 @@ https://github.com/glitchedgitz/cook
 Rules:\
 https://github.com/rarecoil/pantagrule \
 https://github.com/Unic0rn28/hashcat-rules/blob/main/unicorn%20rules/SuperUnicorn.rule \
-https://github.com/NotSoSecure/password_cracking_rules \ 
+https://github.com/NotSoSecure/password_cracking_rules  \
 https://github.com/n0kovo/hashcat-rules-collection
 
 ## Password Spraying / Login 
@@ -99,7 +112,7 @@ https://github.com/n0kovo/hashcat-rules-collection
 https://github.com/knavesec/CredMaster \
 https://github.com/blacklanternsecurity/TREVORspray \
 https://github.com/byt3bl33d3r/SprayingToolkit \
-https://github.com/dafthack/DomainPasswordSpray \  
+https://github.com/dafthack/DomainPasswordSpray  \
 https://github.com/dafthack/MailSniper 
 <br /><br />
  
