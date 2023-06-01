@@ -20,11 +20,9 @@ https://github.com/xajkep/wordlists <br />
 https://github.com/Smarttech247PT/citrix_fgateway_fingerprint
 
 
+# Passwords
 
-
-# Password Cracking
-
-
+## Password Cracking
 
 Wordlists: <br />
 https://github.com/ohmybahgosh/RockYou2021.txt <br />
@@ -35,3 +33,9 @@ https://github.com/OpenTaal/opentaal-wordlist
 Resources and tools: <br />
 https://github.com/JakeWnuk/HIBPv7-Resources <br />
 https://github.com/glitchedgitz/cook <br />
+
+## Password Spraying / Login <br />
+
+
+https://github.com/knavesec/CredMaster <br />
+https://github.com/blacklanternsecurity/TREVORspray <br />
