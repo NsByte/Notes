@@ -9,7 +9,7 @@
 https://wordlists.assetnote.io \
 https://github.com/danielmiessler/SecLists \
 https://github.com/xajkep/wordlists \
-\
+
 
 
 # Citrix 
