@@ -14,6 +14,7 @@ https://github.com/danielmiessler/SecLists \
 https://github.com/xajkep/wordlists 
 
 <br />
+
 ## GraphQL
 
 https://github.com/dolevf/graphw00f
@@ -23,6 +24,22 @@ https://github.com/dolevf/graphw00f
 https://github.com/ticarpi/jwt_tool
 https://jwt.io/
 https://0xn3va.gitbook.io/cheat-sheets/web-application/json-web-token-vulnerabilities
+
+# Email enumeration
+## SimplyEmail
+```
+source ~/python2env/bin/activate
+python SimplyEmail.py -e domain.com -all
+```
+## Linkedin2Username
+Enumerate the names of each person working at a company and convert it to a specific notation
+* You may need to login for verification
+```
+python3 linkedin2username.py -u <username> -p <password> -c linkedin-name
+```
+https://github.com/gremwell/o365enum
+
+# Exploitation
 
 ## Webshells
 PHP \
@@ -57,20 +74,7 @@ Using backticks\
 https://github.com/d4rkiZ/ProcOpen-PHP-Webshell
 https://github.com/kraken-ng/Kraken
 
-# Email enumeration
-## SimplyEmail
-```
-source ~/python2env/bin/activate
-python SimplyEmail.py -e domain.com -all
-```
-## Linkedin2Username
-Enumerate the names of each person working at a company and convert it to a specific notation
-* You may need to login for verification
-```
-python3 linkedin2username.py -u <username> -p <password> -c linkedin-name
-```
-
-https://github.com/gremwell/o365enum
+# Product specific
 
 ## Mendix
 Look for authorisation issues.
