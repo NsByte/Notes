@@ -6,9 +6,9 @@
 
 # Wordlists
 
-https://wordlists.assetnote.io
-https://github.com/danielmiessler/SecLists
-
+https://wordlists.assetnote.io <br />
+https://github.com/danielmiessler/SecLists <br />
+https://github.com/xajkep/wordlists<br />
 
 
 
@@ -16,4 +16,5 @@ https://github.com/danielmiessler/SecLists
 
 # Citrix 
 
-
+## Gateway
+https://github.com/Smarttech247PT/citrix_fgateway_fingerprint
