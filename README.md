@@ -13,7 +13,6 @@ https://wordlists.assetnote.io \
 https://github.com/danielmiessler/SecLists \
 https://github.com/xajkep/wordlists 
 
-<br />
 
 ## GraphQL
 
@@ -24,6 +23,7 @@ https://github.com/dolevf/graphw00f
 https://github.com/ticarpi/jwt_tool\
 https://jwt.io/\
 https://0xn3va.gitbook.io/cheat-sheets/web-application/json-web-token-vulnerabilities
+
 
 # Email enumeration
 ## SimplyEmail
