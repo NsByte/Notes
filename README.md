@@ -1,8 +1,3 @@
-# Notes
-~
-
-<br /><br />
-
 # Enumeration
 ## Wordlists
 
