@@ -7,9 +7,16 @@ https://github.com/xajkep/wordlists \
 
 
 
-# Citrix 
+# Web 
 
-## Gateway
+## Mendix
+Schema/id en entity enumeration:
+1. .XML frontend files enumeraten en dan zoeken op 'entity', staat soms guid bij
+2. initiele sessie response bevat juicy data zoeken op 'klass' om objecten te vinden
+3. Probeer de microflows te enumeraten via:
+//MxModelReflection.Microflows (geen guid nodig)
+
+## Citrix
 https://github.com/Smarttech247PT/citrix_fgateway_fingerprint
 
 
@@ -39,9 +46,10 @@ https://github.com/JakeWnuk/HIBPv7-Resources \
 https://github.com/glitchedgitz/cook 
 
 Rules:\
-https://github.com/rarecoil/pantagrule <br/>
-
-
+https://github.com/rarecoil/pantagrule \
+https://github.com/Unic0rn28/hashcat-rules/blob/main/unicorn%20rules/SuperUnicorn.rule \
+https://github.com/NotSoSecure/password_cracking_rules \ 
+https://github.com/n0kovo/hashcat-rules-collection
 
 ## Password Spraying / Login 
 
