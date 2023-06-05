@@ -96,6 +96,20 @@ A few default schema's:
 //System.WorkflowDefinition
 //Administration.Account
 ```
+Mendix uses the following action's to write and read data:
+```
+Action      Parameter
+retrieve - queryId
+retrieve_by_xpath - xpath 
+retrieve_by_ids - ids
+executeaction - actionname, applyto
+poll_background_job
+keepalive
+commit - guids
+export - gridid, buttonid, xpath
+```
+Each action requires different parameters.
+
 
 ## Citrix
 https://github.com/Smarttech247PT/citrix_fgateway_fingerprint
