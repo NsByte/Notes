@@ -110,7 +110,7 @@ export - gridid, buttonid, xpath
 ```
 Each action requires different parameters.\
 
-https://docs.mendix.com/\
+https://docs.mendix.com/ \
 https://github.com/mendix/RestServices
 
 
