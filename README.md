@@ -87,7 +87,14 @@ Schema/id en entity enumeration:
 A few default schema's:
 ```
 //System.User
+//System.UserRole
 //System.Session
+//System.TimeZone
+//System.Language
+//System.Workflow
+//System.WorkflowState
+//System.WorkflowDefinition
+//Administration.Account
 ```
 
 ## Citrix
