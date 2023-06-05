@@ -108,7 +108,10 @@ keepalive
 commit - guids
 export - gridid, buttonid, xpath
 ```
-Each action requires different parameters.
+Each action requires different parameters.\
+
+https://docs.mendix.com/\
+https://github.com/mendix/RestServices
 
 
 ## Citrix
