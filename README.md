@@ -79,8 +79,8 @@ https://github.com/kraken-ng/Kraken
 ## Mendix
 Look for authorisation issues.
 Schema/id en entity enumeration:
-1. .XML frontend files enumeraten en dan zoeken op 'entity', staat soms guid bij
-2. initiele sessie response bevat juicy data zoeken op 'klass' om objecten te vinden
+1. .XML frontend files enumeraten filter containing 'entity', grep for '"schema":"' to find guid
+2. initial session response contains juicy data grep for 'klass' to find objects
 3. Probeer de microflows te enumeraten via:
 //MxModelReflection.Microflows (geen guid nodig)
 
