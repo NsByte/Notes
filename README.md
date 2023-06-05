@@ -84,9 +84,11 @@ Schema/id en entity enumeration:
 3. Probeer de microflows te enumeraten via:
 //MxModelReflection.Microflows (geen guid nodig)
 
-A few default schema's:\
-//System.User\
+A few default schema's:
+```
+//System.User
 //System.Session
+```
 
 ## Citrix
 https://github.com/Smarttech247PT/citrix_fgateway_fingerprint
