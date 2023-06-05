@@ -81,7 +81,7 @@ Look for authorisation issues.
 Schema/id en entity enumeration:
 1. .XML frontend files enumeraten filter containing 'entity', grep for '"schema":"' to find guid
 2. initial session response contains juicy data grep for 'klass' to find objects
-3. Probeer de microflows te enumeraten via:
+3. Try to enumerate microflows:
 //MxModelReflection.Microflows (geen guid nodig)
 
 A few default schema's:
