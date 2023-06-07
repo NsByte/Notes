@@ -78,6 +78,12 @@ https://github.com/kraken-ng/Kraken
 
 ## Mendix
 Look for authorisation issues.
+
+Some queries need schema/id/guid, some can have an empty schema:
+```
+{"action":"retrieve_by_xpath","params":{"xpath":"//Personal.Foto","schema":{},"count":false}}
+```
+
 Schema/id en entity enumeration:
 1. .XML frontend files enumeraten filter containing 'entity', grep for '"schema":"' to find guid
 2. initial session response contains juicy data grep for 'klass' to find objects
