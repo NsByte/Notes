@@ -116,7 +116,11 @@ export - gridid, buttonid, xpath
 ```
 Each action requires different parameters.
 
-https://docs.mendix.com/ \
+Whenever u use a retrieve_by_xpath query the response will contain a list of the found objects/guids:
+```
+"resultGuids":["17983245202395311","57913545202395512","27983845202395995","37983444202396999","55599999395718","57983849992335898","51983855202395949","545123845202226068"]
+```
+https://docs.mendix.com/    
 https://github.com/mendix/RestServices
 
 
