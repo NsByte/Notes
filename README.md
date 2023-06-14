@@ -132,8 +132,9 @@ Joomscan
 
 Interesting files:
 ```
-administrator/manifests/files/joomla.xml
-templates/xxxx/templateDetails.xml
+/administrator/manifests/files/joomla.xml
+/ templates/xxxx/templateDetails.xml
+/vendor/composer/installed.json
 ```
 
 ## Citrix
