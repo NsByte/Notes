@@ -16,6 +16,12 @@ https://github.com/danielmiessler/SecLists \
 https://github.com/xajkep/wordlists 
 
 
+## SQLi
+
+Sqlmap 
+
+Set custom injection point with * This can also be used in saved burp requests
+
 ## GraphQL
 
 https://github.com/dolevf/graphw00f
