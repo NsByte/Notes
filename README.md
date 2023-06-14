@@ -126,6 +126,16 @@ https://docs.mendix.com/
 https://github.com/mendix/RestServices
 
 
+## Joomla
+
+Joomscan
+
+Interesting files:
+```
+administrator/manifests/files/joomla.xml
+templates/xxxx/templateDetails.xml
+```
+
 ## Citrix
 https://github.com/Smarttech247PT/citrix_fgateway_fingerprint
 
