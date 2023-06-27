@@ -101,6 +101,10 @@ Common directories
 /web-console/ServerInfo.jsp
 ```
 
+JexBoss - JBoss (and others Java Deserialization Vulnerabilities) verify and EXploitation Tool
+https://github.com/joaomatosf/jexboss.git
+
+
 ## Mendix
 Look for authorisation issues.
 
