@@ -84,6 +84,23 @@ https://github.com/kraken-ng/Kraken
 
 # Product specific
 
+## JBOSS
+
+Common directories
+```
+/admin-console/
+/invoker/JMXInvokerServlet
+/jbossws/
+/jmx-console/
+/jmx-console/HtmlAdaptor
+/management
+/manager
+/status?full=true
+/web-console/
+/web-console/Invoker
+/web-console/ServerInfo.jsp
+```
+
 ## Mendix
 Look for authorisation issues.
 
