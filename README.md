@@ -84,6 +84,7 @@ https://github.com/kraken-ng/Kraken
 
 # Product specific
 
+# Java BS
 ## JBOSS
 
 Common directories
@@ -104,6 +105,30 @@ Common directories
 JexBoss - JBoss (and others Java Deserialization Vulnerabilities) verify and EXploitation Tool
 https://github.com/joaomatosf/jexboss.git
 
+# Java Server Faces
+
+Example file:
+```
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <title>JSF Example</title>
+</head>
+<body>
+    <h1>Welcome to JSF Example</h1>
+    
+    <h:form>
+        <h:inputText value="#{userBean.name}" />
+        <h:commandButton value="Submit" action="#{userBean.greet}" />
+    </h:form>
+    
+    <h2>Output:</h2>
+    <h:outputText value="#{userBean.greeting}" />
+</body>
+</html>
+```
 
 ## Mendix
 Look for authorisation issues.
