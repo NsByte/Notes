@@ -212,7 +212,9 @@ Directories and files:
 # Azure
 
 Accessing an application through direct link with AppGUID:
+
 If this app is owned by an organization (Azure AD tenant), use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>.
+
 If this app is owned by your personal Microsoft (MSA) account, use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>/isMSAApp/true.
 
 
