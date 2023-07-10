@@ -82,6 +82,12 @@ Using backticks\
 https://github.com/d4rkiZ/ProcOpen-PHP-Webshell
 https://github.com/kraken-ng/Kraken
 
+# Burp suite
+
+regex:
+
+ .*\.facebook\.com
+
 # Product specific
 
 # Java BS
