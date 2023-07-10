@@ -84,9 +84,8 @@ https://github.com/kraken-ng/Kraken
 
 # Burp suite
 
-regex:
-
- .*\.facebook\.com
+advanced regex:
+^portal\.target\.com$
 
 # Product specific
 
