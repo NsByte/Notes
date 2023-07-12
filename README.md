@@ -224,8 +224,11 @@ If this app is owned by your personal Microsoft (MSA) account, use https://porta
 
 
 
+## ASP.NET MVC
 
+@Html.Raw(Model.Name) = raw output
 
+@Model.Name = encodede output
  
  
  <br /><br />
