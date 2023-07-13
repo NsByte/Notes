@@ -213,13 +213,28 @@ Directories and files:
 
 # Azure / O365
 
+Get information on tenant:
+```https://login.microsoftonline.com/getuserrealm.srf?login=[USERNAME@DOMAIN]&xml=1```  
+
+Get the Tenant ID:
+```https://login.microsoftonline.com/[Domain]/.well-known/openid-configuration```
+
+When anonymous access on blob is enabled files can be accessed on domains like:
+```
+storage-account-name.blob.core.windows.net
+storage-account-name.file.core.windows.net
+storage-account-name.table.core.windows.net
+storage-account-name.queue.core.windows.net
+```
+This can be detected by using Microburst: Invoke-EnumerateAzureBlobs -Base <domain>
+
 Accessing an application through direct link with AppGUID:
 
 If this app is owned by an organization (Azure AD tenant), use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>.  
 If this app is owned by your personal Microsoft (MSA) account, use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>/isMSAApp/true.  
 
 ## tools
-CLI (Azure CLI, Azure PowerShell, AzureAD)  
+CLI (Azure CLI, Azure PowerShell, AzureAD module)
 https://github.com/dirkjanm/ROADtools  
 https://github.com/Gerenios/AADInternals  
 https://github.com/Azure/Stormspotter   
@@ -233,6 +248,8 @@ https://github.com/dafthack/MSOLSpray
 https://github.com/NetSPI/MicroBurst  
 
 
+
+https://medium.com/@Varma_Chekuri/introduction-to-azure-pentesting-2-de576dfb55b  
 
 
 
