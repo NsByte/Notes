@@ -218,15 +218,23 @@ Accessing an application through direct link with AppGUID:
 If this app is owned by an organization (Azure AD tenant), use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>.  
 If this app is owned by your personal Microsoft (MSA) account, use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>/isMSAApp/true.  
 
-Recon tools:  
+## tools
 CLI (Azure CLI, Azure PowerShell, AzureAD)  
 https://github.com/dirkjanm/ROADtools  
 https://github.com/Gerenios/AADInternals  
 https://github.com/Azure/Stormspotter   
 https://github.com/BloodHoundAD/AzureHound  
+https://github.com/hausec/PowerZure  
+
+
 https://github.com/dafthack/MFASweep - check azure/ms services for 2fa requirement  
 https://zolder.io/detecting-mfasweep-using-azure-sentinel/
 https://github.com/dafthack/MSOLSpray  
+https://github.com/NetSPI/MicroBurst  
+
+
+
+
 
 ## ASP.NET MVC
 
@@ -369,6 +377,10 @@ https://github.com/carlospolop/PEASS-ng
 
 
 # Windows Server 
+
+## Azure AD Connect
+-The MSOL account is used to synchronise on-prem with azure  
+
 
 ## Bloodhound
 https://github.com/CompassSecurity/BloodHoundQueries
