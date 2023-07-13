@@ -219,14 +219,14 @@ If this app is owned by an organization (Azure AD tenant), use https://portal.az
 
 If this app is owned by your personal Microsoft (MSA) account, use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>/isMSAApp/true.
 
-
+https://github.com/dirkjanm/ROADtools
 https://github.com/dafthack/MFASweep - check azure/ms services for 2fa requirement
 https://zolder.io/detecting-mfasweep-using-azure-sentinel/
+https://github.com/dafthack/MSOLSpray - password spraying, verbose output
 
 ## ASP.NET MVC
 
 @Html.Raw(Model.Name) = raw output
-
 @Model.Name = encodede output
  
  
