@@ -211,10 +211,7 @@ Directories and files:
 
 
 
-
-
-
-# Azure
+# Azure / O365
 
 Accessing an application through direct link with AppGUID:
 
@@ -223,6 +220,8 @@ If this app is owned by an organization (Azure AD tenant), use https://portal.az
 If this app is owned by your personal Microsoft (MSA) account, use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>/isMSAApp/true.
 
 
+https://github.com/dafthack/MFASweep - check azure/ms services for 2fa requirement
+https://zolder.io/detecting-mfasweep-using-azure-sentinel/
 
 ## ASP.NET MVC
 
