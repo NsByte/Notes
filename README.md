@@ -233,6 +233,19 @@ Accessing an application through direct link with AppGUID:
 If this app is owned by an organization (Azure AD tenant), use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>.  
 If this app is owned by your personal Microsoft (MSA) account, use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>/isMSAApp/true.  
 
+
+## Silver ticket
+SSO is relying on Kerberos, and thus, has the same flaws. If the AZUREADSSOACC$ is compromised, one is able to create service tickets for impersonating any user with MFA disabled on Azure AD. This technique is also known as Silver Tickets.  
+  
+Silver tickets can be created using mimikatz. In order to do so, the following parameters are required:  
+```
+Username of the user to impersonate.
+Domain name.
+NTLM hash of the AZUREADSSOACC$ account.
+SID of the user to impersonate.
+Target service, which is HTTP/aadg.windows.net.nsatc.net.
+```
+
 ## tools
 CLI (Azure CLI, Azure PowerShell, AzureAD module)
 https://github.com/dirkjanm/ROADtools  
