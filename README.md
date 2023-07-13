@@ -228,7 +228,7 @@ https://github.com/hausec/PowerZure
 
 
 https://github.com/dafthack/MFASweep - check azure/ms services for 2fa requirement  
-https://zolder.io/detecting-mfasweep-using-azure-sentinel/
+https://zolder.io/detecting-mfasweep-using-azure-sentinel/  
 https://github.com/dafthack/MSOLSpray  
 https://github.com/NetSPI/MicroBurst  
 
