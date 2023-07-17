@@ -352,6 +352,10 @@ Sending file
 nc -l -p 443 > out.file
 nc -w 3 10.0.0.1 443 < in.file
 ```
+Listen for DNS requests:
+```
+nc -ulp 53
+```
 
 
 ## Reverse shell without Netcat
