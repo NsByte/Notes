@@ -809,7 +809,112 @@ https://github.com/danielbohannon/Invoke-Obfuscation
 https://github.com/JoelGMSec/Invoke-Stealth
 
 https://github.com/S3cur3Th1sSh1t/PowerSharpPack
- # Physical attacks
+
+
+# Linux binary exploitation
+dump ELF’s header
+$readelf -h <filename>
+
+Symbols  
+```
+non stripped binary
+$ readelf --syms <filename>.out
+
+stripping symbols from a binary
+$ strip --strip-all <filename>.out
+$ readelf --syms <filename>.out
+```
+
+Sections  
+```
+dump all ELF’s sections information
+$readelf --sections --wide <filename>.out
+dump the .plt section
+$ objdump -M intel --section .plt -d <filename>.out
+dump the relocs
+$ readelf --relocs <filename>.out
+``` 
+
+Program headers  
+```
+dump all ELF’s program headers information
+$ readelf --segments --wide <filename>.out
+```
+
+Binary Inspection/Forensic  
+
+```
+Check magic bytes to obtain file type
+$ file <filename>
+base64 decode
+$ base64 -d <encoded_file> > <decoded_file>
+uncompress preview
+$ file -z <compressed_file>
+uncompress file
+$ tar xvzf <compressed_file>
+find library dependencies
+$ ldd <filename>
+dump hex first 128 bytes
+$ xxd -l 128 <filename>
+dump binary first 128 bytesr
+$ xxd -b -l 128 <filename>
+dump c-style header first 128 bytes at a 256-bytes offset
+$ xxd -i -s 256 -l 128 <filename>
+extract 64-bytes long ELF header residing 52 bytes after start, 1 byte a time time
+$ dd skip=52 count=64 if=<input_filename> of=<output_filename> bs=1
+Calculate total binary file given ELF header only
+total_size = elf_section_header_offset + (elf_section_headers_count * elf_section_header_size)
+List symbols from object file
+$ nm <filename>
+List and demangle dynamic symbols from stripped object file
+$ nm -D --demangle <filename>
+Add current path to the linker environment
+$ export LD_LIBRARY_PATH=`pwd`
+Trace system calls
+$ strace <filename>`
+Trace library calls while demangling C++ functions and printing EIP
+$ ltrace -i -C <filename>`
+```
+
+Disassembling  
+```
+simple disassembly of an object file
+$ objdump -M intel -d <filename>.o
+check relocations inside the object file
+$ readelf --relocs compilation_example.o
+full binary disassembly
+$ objdump -M intel -d <filename>.out
+```
+
+Set a breakpoint  
+```
+(gdb) b *0x[address]
+Show the registers
+(gdb) info registers [specific register]
+Dump a string at memory address
+(gdb) x/s 0x[memory_address]
+Dump a four hex words at memory address
+(gdb) x/4xw 0x[memory_address]
+```
+
+Partial RELRO  
+```
+gcc -g -Wl,-z,relro -o test testcase.c
+Full RELRO
+gcc -g -Wl,-z,relro,-z,now -o test testcase.c
+```
+
+Binary Injection  
+Assemble a raw binary (removing any ELF overhead and leaving just the code)  
+```
+nasm -f bin -o test.bin test.s
+Inject shellcode into an ELF
+elfinject ps bindshell.bin ".injected" 0x800000 -1
+```
+
+
+
+# Physical attacks
   
   
  # BIOS
