@@ -15,13 +15,6 @@ https://wordlists.assetnote.io \
 https://github.com/danielmiessler/SecLists \
 https://github.com/xajkep/wordlists 
 
-
-## SQLi
-
-Sqlmap 
-
-Set custom injection point with * This can also be used in saved burp requests
-
 ## GraphQL
 
 https://github.com/dolevf/graphw00f
@@ -287,6 +280,11 @@ https://medium.com/@Varma_Chekuri/introduction-to-azure-pentesting-2-de576dfb55b
  
  <br /><br />
 # SQL Injection
+
+Sqlmap
+```
+Set custom injection point with * This can also be used in saved burp requests
+```
 
 ```
 login bypass
