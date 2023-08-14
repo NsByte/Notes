@@ -1,3 +1,6 @@
+Test-NetConnection -Port 587 -ComputerName email-smtp.us-west-2.amazonaws.com
+
+
 # Web 
 
 https://github.com/Elsfa7-110/Elsfa7110-Oneliner-bughunting
