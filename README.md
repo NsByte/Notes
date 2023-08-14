@@ -178,6 +178,7 @@ poll_background_job
 keepalive
 commit - guids
 export - gridid, buttonid, xpath
+runtimeOperation - operationId
 ```
 Each action requires different parameters.
 
