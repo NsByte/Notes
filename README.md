@@ -152,6 +152,21 @@ Some queries need schema/id/guid, some can have an empty schema:
 {"action":"retrieve_by_xpath","params":{"xpath":"//Personal.Foto","schema":{},"count":false}}
 ```
 
+Create a object which can be used for callback
+```
+function output(obj){
+ o = obj
+}
+
+o;
+
+mx.data.get({guid:"13641898043228119", callback:output});
+
+o.set("Filename", "hackedname")
+
+mx.data.commit({mxobj: o, callback: console.info});
+```  
+
 get_session_data contains alot of useful information  
 
 Schema/id en entity enumeration:
