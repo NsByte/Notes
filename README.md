@@ -152,6 +152,8 @@ Some queries need schema/id/guid, some can have an empty schema:
 {"action":"retrieve_by_xpath","params":{"xpath":"//Personal.Foto","schema":{},"count":false}}
 ```
 
+get_session_data contains alot of useful information  
+
 Schema/id en entity enumeration:
 1. .XML frontend files enumeraten filter containing 'entity', grep for '"schema":"' to find guid
 2. initial session response contains juicy data grep for 'klass' to find objects
@@ -193,6 +195,8 @@ Whenever u use a retrieve_by_xpath query the response will contain a list of the
 https://docs.mendix.com/    
 https://github.com/mendix/RestServices
 
+https://video.mendix.com/watch/xpvL3W9zvMJGar1GxhE5iT  
+https://video.mendix.com/watch/xSrQDTHT7X3978aSXSoy6t  
 
 ## Joomla
 
