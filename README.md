@@ -301,7 +301,7 @@ https://medium.com/@Varma_Chekuri/introduction-to-azure-pentesting-2-de576dfb55b
 
 ## ASP.NET MVC
 
-@Html.Raw(Model.Name) = raw output
+@Html.Raw(Model.Name) = raw output   
 @Model.Name = encodede output
  
  
