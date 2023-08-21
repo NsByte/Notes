@@ -246,10 +246,10 @@ Directories and files:
 Well-known Client-ID:  
 ```1950a258-227b-4e31-a9cf-717495945fc```  
 
-Get information on tenant:  
+Get information on tenant:   
 ```https://login.microsoftonline.com/getuserrealm.srf?login=[USERNAME@DOMAIN]&xml=1```   
 
-Get the Tenant ID:  
+Get the Tenant ID:   
 ```https://login.microsoftonline.com/[Domain]/.well-known/openid-configuration```  
 
 When anonymous access on blob is enabled files can be accessed on domains like:  
