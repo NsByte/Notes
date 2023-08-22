@@ -831,13 +831,14 @@ https://github.com/carlospolop/PEASS-ng
 
 
 ## AMSI / AV Bypass
-https://github.com/RythmStick/AMSITrigger
-https://amsi.fail/
-https://github.com/danielbohannon/Invoke-Obfuscation
-https://github.com/JoelGMSec/Invoke-Stealth
-
-https://github.com/S3cur3Th1sSh1t/PowerSharpPack
-
+https://github.com/RythmStick/AMSITrigger   
+https://amsi.fail/   
+https://github.com/danielbohannon/Invoke-Obfuscation   
+https://github.com/JoelGMSec/Invoke-Stealth   
+https://github.com/S3cur3Th1sSh1t/PowerSharpPack   
+[https://github.com/TheWover/donut](https://docs.microsoft.com/en-us/visualstudio/ide/dotfuscator/?view=vs-2019   
+https://github.com/TheWover/donut   
+https://blog.xpnsec.com/building-modifying-packing-devops/)   
 
 # Linux binary exploitation
 dump ELF’s header
@@ -939,6 +940,8 @@ nasm -f bin -o test.bin test.s
 Inject shellcode into an ELF
 elfinject ps bindshell.bin ".injected" 0x800000 -1
 ```
+
+
 
 
 
