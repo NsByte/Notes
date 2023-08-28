@@ -298,6 +298,10 @@ https://github.com/NetSPI/MicroBurst
 https://medium.com/@Varma_Chekuri/introduction-to-azure-pentesting-2-de576dfb55b  
 
 
+## ADFS
+   
+https://adfs.<domain>/adfs/services/trust/mex
+
 
 ## ASP.NET MVC
 
