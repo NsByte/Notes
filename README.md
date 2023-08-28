@@ -302,6 +302,17 @@ https://medium.com/@Varma_Chekuri/introduction-to-azure-pentesting-2-de576dfb55b
    
 https://adfs.<domain>/adfs/services/trust/mex
 
+The ADFS Metadata is where the ADFS exposes all endpoint, certificates and other information needed by someone setting up a SAML integration with ADFS. ADFS exposes its Metadata XML on the URL mentioned above.   
+https://<your-adfs-server>/FederationMetadata/2007-06/FederationMetadata.xml
+
+
+ADFS On prem has smart ip lockout:   
+https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection   
+Can be bypassed using Fireprox or other proxies:   
+https://github.com/ustayready/fireprox   
+
+
+
 
 ## ASP.NET MVC
 
