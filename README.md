@@ -145,6 +145,29 @@ Example file:
 ```
 
 ## Mendix
+Usefull Javascript functions:  
+```
+mx.session.getConfig("locale");
+
+mx.session.getConfig("constants");
+// or if you are on a newer Mx version (> 9.x )
+mx.session.getConstants();
+
+mx.session.getConfig("isDevModeEnabled");
+
+mx.session.getConfig("metadata");
+
+mx.session.getConfig("roles");
+
+mx.session.getConfig("user");
+
+mx.session.getConfig("sessionObjectId");
+
+mx.session.getConfig("demoUsers");
+
+mx.meta.getMap();
+
+```
 Look for authorisation issues.
 
 Some queries need schema/id/guid, some can have an empty schema:
