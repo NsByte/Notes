@@ -7,6 +7,10 @@ https://github.com/Elsfa7-110/Elsfa7110-Oneliner-bughunting
 
 # Enumeration
 
+## DNS / Hostname
+# Find all hostnames based on ip through securitytrails
+curl --silent --request GET --url 'https://api.securitytrails.com/v1/ips/nearby/80.113.69.160' --header 'APIKEY: X ' | jq -r '.blocks[] | select(.active_egress == false) | .hostnames[]?
+
 ## Screenshot enumeration
 https://github.com/byt3bl33d3r/WitnessMe  
 https://github.com/sensepost/gowitness  
