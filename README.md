@@ -294,6 +294,11 @@ If this app is owned by an organization (Azure AD tenant), use https://portal.az
 If this app is owned by your personal Microsoft (MSA) account, use https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/<AppGUID>/isMSAApp/true.  
 
 
+## Kerberoasting
+
+On windows:
+```setspn -T * -F -Q */*```
+
 ## Silver ticket
 SSO is relying on Kerberos, and thus, has the same flaws. If the AZUREADSSOACC$ is compromised, one is able to create service tickets for impersonating any user with MFA disabled on Azure AD. This technique is also known as Silver Tickets.  
   
