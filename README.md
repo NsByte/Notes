@@ -12,8 +12,6 @@ https://log4shell.tools/
 https://github.com/alexbakker/log4shell-tools  
 
 
-# Windows Local
-## Directory and file notations
 Directory/file name bypasses
 ```
 C:\>powershell C:\??*?\*3?\c?lc.?x? calc.exe
@@ -38,7 +36,8 @@ NVIDIA~1 NVIDIA Corporation
 SYSTEM~1 System Volume Information
 ```
 
-
+Display all unicodes + alt codes
+0..65535 | ForEach-Object { $char = [char]$_; if ($char -ne [char]0) { "Alt+" + $_ + " → " + $char + " (U+" + $_.ToString("X4") + ")" } }
 
 ## Mendix
 Usefull Javascript functions:  
