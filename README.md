@@ -36,7 +36,7 @@ NVIDIA~1 NVIDIA Corporation
 SYSTEM~1 System Volume Information
 ```
 
-Display all unicodes + alt codes
+Display all unicodes + alt codes  
 0..65535 | ForEach-Object { $char = [char]$_; if ($char -ne [char]0) { "Alt+" + $_ + " → " + $char + " (U+" + $_.ToString("X4") + ")" } }
 
 ## Mendix
